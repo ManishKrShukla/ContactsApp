@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'redux-little-router';
+import {PersistentQueryLink} from 'redux-little-router';
 
 export default class ContactsListComponent extends React.Component {
     constructor() {
@@ -19,6 +19,7 @@ export default class ContactsListComponent extends React.Component {
     }
 
     updateContacts(props) {
+        console.log("inside");
         let searchTerm = props.location.query.search;
 
         if (searchTerm) {
@@ -71,12 +72,12 @@ export default class ContactsListComponent extends React.Component {
                 <ul className="list-group app-list">
                     {
                         this.state.contacts.map((contact) => {
-                                return <Link 
+                                return <PersistentQueryLink 
                                     key={`${contact.id} - ${contact.group_id}`} 
                                     className={'list-group-item' + (this.props.selectedContact.id == contact.id ? ' active' : '')} 
                                     href={`/groups/${contact.group_id}/${contact.id}`}>
                                     {`${contact.firstName} ${contact.lastName}`}
-                                </Link>
+                                </PersistentQueryLink>
 
                         })
                     }
