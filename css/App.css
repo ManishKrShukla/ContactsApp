@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    padding-left: 0px;
+}
+
+.txt-last-name {
+    margin-left: 5px;
+}
+
+.h5-heading {
+    font-size: 12px;
+    color: grey;
+    margin-bottom: 4px;
+    margin-top: 28px;
+}
+
+.list-contacts {
+    padding-left: 15px;
+    list-style: none;
+}
+
+#search-contacts {
+    margin: auto;
+    float: none;
+    overflow: auto;
+    display: block;
+    margin-left: 0px;
+    margin-top: 19px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.app-list li, .app-list a {
+    padding: 5px 10px;
+    border: none;
+}
+
+.action-containers {
+    text-align: center;
+}
+
+.action-containers span,  .action-containers a{
+    font-size: 30px;
+    margin:15px;
+}
+
+body {
+    margin: 0px;
+}
+
+#root {
+    display: flex;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+#root .container {
+    width: 100%;
+}
+
+.contacts-group, .contacts-list, .contacts-details{
+    border-right: thin #808080 solid;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.contact-header-details-container {
+    margin-top:11px;
+}
+
+.company-name {
+    flex: 1 100%;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+
+.last-name {
+    margin-left: 10px;
+}
+
+.contacts-group {
+    flex: 0.1 40%;
+}
+
+.contacts-list {
+    flex: 0.1 40%;
+}
+
+.contacts-details {
+    flex: 1 100%;
+    border-right: none;
+}
+
+.contact-header-details-container {
+    display: flex;
+}
+
+.contact-name-container {
+    flex: 0.8;
+    margin-left: 5px;
+}
+
+.name-initials {
+    margin:auto;
+}
+
+.contact-image-container {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    border-radius: 50%;
+    background: grey;
+}
