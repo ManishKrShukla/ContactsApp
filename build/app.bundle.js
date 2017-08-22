@@ -1,50 +1,833 @@
-webpackJsonp([2],{0:/*!*********************!*\
-  !*** ./js/index.js ***!
-  \*********************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}var a=n(/*! react */11),r=o(a),u=n(/*! react-dom */161),c=o(u),s=n(/*! react-redux */40),i=n(/*! redux-little-router */18),l=n(/*! ./reducers */74),p=o(l),d=n(/*! ./components/AppComponent.jsx */123),f=o(d),C=n(/*! bootstrap/dist/css/bootstrap.css */132);o(C);n(/*! ../css/App.css */131),c.default.render(r.default.createElement(s.Provider,{store:p.default},r.default.createElement(f.default,null)),document.getElementById("root")),(0,i.push)("/groups")},30:/*!********************************************!*\
-  !*** ./js/constants/contacts-constants.js ***!
-  \********************************************/
-function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.GET_GROUPS="GET_GROUPS",e.ADD_CONTACT="ADD_CONTACT",e.UPDATE_CONTACT="UPDATE_CONTACT",e.ADD_GROUP="ADD_GROUP",e.SELECT_GROUP="SELECT_GROUP",e.SELECT_CONTACT="SELECT_CONTACT",e.UPDATE_CONTACT_SUCCESS="UPDATE_CONTACT_SUCCESS",e.CLEAR_CONTACT_EVENT="CLEAR_CONTACT_EVENT"},44:/*!***************************************!*\
-  !*** ./js/actions/contacts-action.js ***!
-  \***************************************/
-function(t,e,n){"use strict";function o(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e.default=t,e}Object.defineProperty(e,"__esModule",{value:!0});var a=n(/*! ../constants/contacts-constants */30),r=o(a);e.default={loadGroups:function(){var t=arguments.length>0&&void 0!==arguments[0]&&arguments[0];return{type:r.GET_GROUPS,data:{loadAllContacts:t}}},addContact:function(t){return{type:r.ADD_CONTACT,data:t}},addGroup:function(t){return{type:r.ADD_GROUP,data:t}},selectGroupAndSetContacts:function(t){return{type:r.SELECT_GROUP,data:t}},selectContact:function(t,e){var n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];return{type:r.SELECT_CONTACT,data:{group:t,contact:e,isEditMode:n}}},updateContact:function(t){return{type:r.UPDATE_CONTACT,data:{contact:t}}},clearEvents:function(t){return{type:r.CLEAR_CONTACT_EVENT}}}},45:/*!********************************!*\
-  !*** ./js/routes/constants.js ***!
-  \********************************/
-function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=e.GROUP_LIST="/groups";e.GROUP_DETAILS="/groups/:group",e.GROUP_CONTACT_DETAILS="/groups/:group/:contact",e.EDIT_CONTACT_DETAILS="/groups/:group/:contact/edit",e.getContactUrl=function(t,e){return n+"/"+t+"/"+e}},72:/*!**************************************************!*\
-  !*** ./js/components/ContactGroupsComponent.jsx ***!
-  \**************************************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}function a(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function r(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0});var c=function(){function t(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}return function(e,n,o){return n&&t(e.prototype,n),o&&t(e,o),e}}(),s=n(/*! react */11),i=o(s),l=n(/*! redux-little-router */18),p=function(t){function e(){return a(this,e),r(this,(e.__proto__||Object.getPrototypeOf(e)).apply(this,arguments))}return u(e,t),c(e,[{key:"render",value:function(){var t=this;return i.default.createElement("div",{className:"contacts-group"},i.default.createElement("h5",{className:"h5-heading"}," On This Mac "),i.default.createElement("ul",{className:"list-contacts app-list"},i.default.createElement(l.Link,{className:"list-group-item"+(this.props.selectedGroup==-1?" active":""),href:"/groups"},"All Contacts"),this.props.groups.map(function(e){return i.default.createElement(l.Link,{key:e.id,className:"list-group-item"+(t.props.selectedGroup==e.id?" active":""),href:"/groups/"+e.id},e.name)})))}}]),e}(i.default.Component);e.default=p},73:/*!*************************************************!*\
-  !*** ./js/components/ContactsListComponent.jsx ***!
-  \*************************************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}function a(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function r(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0});var c=function(){function t(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}return function(e,n,o){return n&&t(e.prototype,n),o&&t(e,o),e}}(),s=n(/*! react */11),i=o(s),l=n(/*! redux-little-router */18),p=function(t){function e(){a(this,e);var t=r(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return t.state={search:"",contacts:[]},t}return u(e,t),c(e,[{key:"componentDidMount",value:function(){this.updateContacts(this.props)}},{key:"componentWillReceiveProps",value:function(t){this.updateContacts(t)}},{key:"updateContacts",value:function(t){var e=t.location.query.search;e?this.setStateForSearch(e):this.setState({contacts:t.contacts}),this.searchInput.focus()}},{key:"setStateForSearch",value:function(t){this.setState({search:t,contacts:this.props.contacts.filter(function(e){return e.fullName.toLowerCase().indexOf(t.toLowerCase())!==-1})})}},{key:"search",value:function(t){this.setStateForSearch(t.target.value);var e={search:t.target.value};""===t.target.value&&(e={}),this.props.onSearch({pathname:this.props.location.pathname,query:e})}},{key:"render",value:function(){var t=this;return i.default.createElement("div",{className:"contacts-list",id:"search-contacts"},i.default.createElement("div",{className:"input-group"},i.default.createElement("div",{className:"input-group-addon"},i.default.createElement("span",{className:"glyphicon glyphicon-search"})),i.default.createElement("input",{ref:function(e){t.searchInput=e},value:this.state.search,onChange:function(e){return t.search(e)},type:"text",className:"form-control",placeholder:"Search"})),i.default.createElement("ul",{className:"list-group app-list"},this.state.contacts.map(function(e){return i.default.createElement(l.Link,{key:e.id+" - "+e.group_id,className:"list-group-item"+(t.props.selectedContact.id==e.id?" active":""),href:"/groups/"+e.group_id+"/"+e.id},e.firstName+" "+e.lastName)})))}}]),e}(i.default.Component);e.default=p},74:/*!******************************!*\
-  !*** ./js/reducers/index.js ***!
-  \******************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var a=n(/*! redux */70),r=n(/*! redux-little-router */18),u=n(/*! ../middlewares/location-tracker */125),c=o(u),s=n(/*! ./groups */127),i=o(s),l=n(/*! ./contacts */126),p=o(l),d=n(/*! ./master */128),f=o(d),C=n(/*! ../routes */129),_=o(C),h=(0,r.routerForBrowser)({routes:_.default}),T=h.reducer,m=h.middleware,y=h.enhancer,E=(0,a.combineReducers)({router:T,contactGroups:i.default,contacts:p.default,master:f.default}),v=(0,a.createStore)(E,(0,a.compose)(y,(0,a.applyMiddleware)(m,c.default))),O=v.getState().router;O&&v.dispatch((0,r.initializeCurrentLocation)(O)),e.default=v},123:/*!****************************************!*\
-  !*** ./js/components/AppComponent.jsx ***!
-  \****************************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var a=n(/*! react */11),r=(o(a),n(/*! redux */70)),u=n(/*! react-redux */40),c=n(/*! redux-little-router */18),s=n(/*! ./ContactsAppComponent.jsx */124),i=o(s),l=n(/*! ../actions/contacts-action */44),p=o(l),d=n(/*! ./ContactGroupsComponent.jsx */72),f=(o(d),n(/*! ./ContactsListComponent.jsx */73)),C=(o(f),function(t){return{groups:t.contactGroups.groups,selectedGroup:t.contactGroups.selectedGroup,contacts:t.contacts.CURRENT_CONTACTS,location:t.location,selectedContact:t.contacts.selectedContact,initialLocation:t.router,isEditMode:t.contacts.isEditMode}}),_=function(t){return{addGroup:function(e){return t(p.default.addGroup(e))},getGroups:function(){return t(p.default.loadGroups())},selectGroup:function(e){return t(p.default.selectGroupAndSetContacts)},selectContact:function(t){return(0,r.bindActionCreators)(p.default.selectContact)},addContact:function(){return(0,r.bindActionCreators)(p.default.addContact,t)},updateContact:function(){return(0,r.bindActionCreators)(p.default.updateContact,t)},redirectToGroups:function(){return t((0,c.replace)({pathname:"/groups"}))},searchContacts:function(e){return t((0,c.replace)(e))}}};e.default=(0,u.connect)(C,_)(i.default)},124:/*!************************************************!*\
-  !*** ./js/components/ContactsAppComponent.jsx ***!
-  \************************************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}function a(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function r(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0});var c=function(){function t(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}return function(e,n,o){return n&&t(e.prototype,n),o&&t(e,o),e}}(),s=n(/*! react */11),i=o(s),l=n(/*! redux-little-router */18),p=n(/*! ../constants/contacts-constants */30),d=n(/*! ../routes/constants */45),f=n(/*! ../reducers */74),C=o(f),_=n(/*! ../actions/contacts-action */44),h=o(_),T=n(/*! ./ContactGroupsComponent.jsx */72),m=o(T),y=n(/*! ./ContactsListComponent.jsx */73),E=o(y),v=function(t){function e(){a(this,e);var t=r(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return t.unsubscribe=C.default.subscribe(function(){var t=C.default.getState();t.contacts.event===p.UPDATE_CONTACT_SUCCESS&&(C.default.dispatch(h.default.clearEvents()),C.default.dispatch((0,l.replace)({pathname:(0,d.getContactUrl)(t.router.params.group,t.router.params.contact)})))}),t}return u(e,t),c(e,[{key:"componentDidMount",value:function(){this.setState({detailsComponent:null}),this.props.selectedContact.id!==-1&&this.renderDetailsComponent(this.props)}},{key:"componentWillReceiveProps",value:function(t){var e=this.props.initialLocation;"/"===e.pathname&&this.props.redirectToGroups(),t.selectedContact.id===-1?this.setState({detailsComponent:null}):this.props.selectedContact.id!==t.selectedContact.id&&this.renderDetailsComponent(t)}},{key:"renderDetailsComponent",value:function(t){var e=this;n.e(1,function(o){console.log("component loaded");var a=n(/*! ./ContactDetailsComponent.jsx */71).default;e.setState({detailsComponent:i.default.createElement(a,{updateContact:t.updateContact,isEditMode:t.isEditMode,contact:t.selectedContact})})})}},{key:"componentWillUnmount",value:function(){this.unsubscribe()}},{key:"render",value:function(){return i.default.createElement("div",{className:"container"},i.default.createElement(m.default,{groups:this.props.groups,onSelect:this.props.selectGroup,selectedGroup:this.props.selectedGroup}),i.default.createElement(E.default,{onSelect:this.props.selectContact,selectedContact:this.props.selectedContact,location:this.props.initialLocation,onSearch:this.props.searchContacts,contacts:this.props.contacts}),this.state&&this.state.detailsComponent)}}]),e}(i.default.Component);e.default=v},125:/*!********************************************!*\
-  !*** ./js/middlewares/location-tracker.js ***!
-  \********************************************/
-function(t,e,n){"use strict";function o(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var a=n(/*! ../routes/constants */45),r=n(/*! ../actions/contacts-action */44),u=o(r),c=function(t){return function(e){return function(n){if("ROUTER_LOCATION_CHANGED"===n.type)switch(0===t.getState().contactGroups.groups.length&&n.payload.route!==a.GROUP_LIST&&e(u.default.loadGroups()),n.payload.route){case a.GROUP_LIST:e(u.default.loadGroups(!0));break;case a.GROUP_DETAILS:e(u.default.selectGroupAndSetContacts(n.payload.params.group));break;case a.GROUP_CONTACT_DETAILS:e(u.default.selectGroupAndSetContacts(n.payload.params.group)),e(u.default.selectContact(n.payload.params.group,n.payload.params.contact));break;case a.EDIT_CONTACT_DETAILS:e(u.default.selectGroupAndSetContacts(n.payload.params.group)),e(u.default.selectContact(n.payload.params.group,n.payload.params.contact,!0))}e(n)}}};e.default=c},126:/*!*********************************!*\
-  !*** ./js/reducers/contacts.js ***!
-  \*********************************/
-function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(/*! ../constants/contacts-constants */30),a={ALL_CONTACTS:[],CURRENT_CONTACTS:[],selectedContact:{id:-1},isEditMode:!1,event:""};[0,0,0,0,0].forEach(function(t,e){[0,0,0,0,0].forEach(function(t,n){a.ALL_CONTACTS.push({id:n+1,group_id:e+1,firstName:"First",lastName:"Last "+(e+1)+" - "+(n+1),fullName:"First Last "+(e+1)+" - "+(n+1),phone:[{type:"home 1",value:"123123123"},{type:"home 2",value:"123123123"},{type:"home 3",value:"123123123"}],email:[{type:"home 1",value:"test@123.com"},{type:"home 2",value:"test@123.com"},{type:"home 3",value:"test@123.com"}],website:[{type:"home 1",value:"web@123.com"},{type:"home 2",value:"web@123.com"},{type:"home 3",value:"web@123.com"}]})})});var r=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:a,e=arguments[1];switch(e.type){case"ADD_GROUP":return t;case o.GET_GROUPS:return e.data.loadAllContacts&&(t.CURRENT_CONTACTS=t.ALL_CONTACTS),t;case o.SELECT_CONTACT:var n=t.ALL_CONTACTS.find(function(t){return t.id===parseInt(e.data.contact)&&t.group_id===parseInt(e.data.group)});return t.selectedContact=n,t.isEditMode=e.data.isEditMode,t;case o.UPDATE_CONTACT:var r=t.ALL_CONTACTS.findIndex(function(t){return t.id===parseInt(e.data.contact)&&t.group_id===parseInt(e.data.group)});return t.ALL_CONTACTS[r]=e.data.contact,t.event=o.UPDATE_CONTACT_SUCCESS,t;case o.SELECT_GROUP:return t.CURRENT_CONTACTS=t.ALL_CONTACTS.filter(function(t){return t.group_id===parseInt(e.data)}),t.selectedContact={id:-1},t;case o.CLEAR_CONTACT_EVENT:t.event="";default:return t}};e.default=r},127:/*!*******************************!*\
-  !*** ./js/reducers/groups.js ***!
-  \*******************************/
-function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(/*! ../constants/contacts-constants */30),a=[{id:1,name:"Family"},{id:2,name:"Friends"},{id:3,name:"Work"},{id:4,name:"Society"},{id:5,name:"School"}],r={groups:[],selectedGroup:-1},u=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:r,e=arguments[1];switch(e.type){case"ADD_GROUP":return t;case o.SELECT_GROUP:return t.selectedGroup=parseInt(e.data),t;case o.GET_GROUPS:return e.data.loadAllContacts&&(t.selectedGroup=-1),0===t.groups.length&&(t.groups=a),t;default:return t}};e.default=u},128:/*!*******************************!*\
-  !*** ./js/reducers/master.js ***!
-  \*******************************/
-function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={phone:[],email:[],fax:[],website:[]},o=function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:n,e=arguments[1];switch(e.type){case"ADD_FIELD_TYPE":return t;default:return t}};e.default=o},129:/*!****************************!*\
-  !*** ./js/routes/index.js ***!
-  \****************************/
-function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(/*! ./constants */45),a={};a[o.GROUP_LIST]={title:"Contact Groups"},a[o.GROUP_DETAILS]={title:"Contact Group"},a[o.GROUP_CONTACT_DETAILS]={title:"View Contact Details"},a[o.EDIT_CONTACT_DETAILS]={title:"Edit Contact Details"},e.default=a},131:/*!*********************!*\
-  !*** ./css/App.css ***!
-  \*********************/
-function(t,e){},132:/*!********************************************!*\
-  !*** ./~/bootstrap/dist/css/bootstrap.css ***!
-  \********************************************/
-function(t,e){}});
-//# sourceMappingURL=app.bundle.js.map
+webpackJsonp([0],{
+
+/***/ 117:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var GROUP_LIST = exports.GROUP_LIST = '/groups';
+var GROUP_DETAILS = exports.GROUP_DETAILS = '/groups/:group';
+var GROUP_CONTACT_DETAILS = exports.GROUP_CONTACT_DETAILS = '/groups/:group/:contact';
+var EDIT_CONTACT_DETAILS = exports.EDIT_CONTACT_DETAILS = '/groups/:group/:contact/edit';
+// export const GROUP_LIST = 'groups';
+
+
+var getContactUrl = exports.getContactUrl = function getContactUrl(group, contact) {
+    return GROUP_LIST + '/' + group + '/' + contact;
+};
+
+/***/ }),
+
+/***/ 118:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _contactsConstants = __webpack_require__(67);
+
+var types = _interopRequireWildcard(_contactsConstants);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+exports.default = {
+    loadGroups: function loadGroups() {
+        var loadAllContacts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+        return { type: types.GET_GROUPS, data: { loadAllContacts: loadAllContacts } };
+    },
+
+    addContact: function addContact(contact) {
+        return { type: types.ADD_CONTACT, data: contact };
+    },
+
+    addGroup: function addGroup(group) {
+        return { type: types.ADD_GROUP, data: group };
+    },
+
+    selectGroupAndSetContacts: function selectGroupAndSetContacts(groupId) {
+        return { type: types.SELECT_GROUP, data: groupId };
+    },
+
+    selectContact: function selectContact(group, contact) {
+        var isEditMode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+        return { type: types.SELECT_CONTACT, data: { group: group, contact: contact, isEditMode: isEditMode } };
+    },
+
+    updateContact: function updateContact(contact) {
+        return { type: types.UPDATE_CONTACT, data: { contact: contact } };
+    },
+
+    clearEvents: function clearEvents(contact) {
+        return { type: types.CLEAR_CONTACT_EVENT };
+    }
+};
+
+/***/ }),
+
+/***/ 119:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(134);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(37);
+
+var _reduxLittleRouter = __webpack_require__(26);
+
+var _reducers = __webpack_require__(274);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+var _AppComponent = __webpack_require__(280);
+
+var _AppComponent2 = _interopRequireDefault(_AppComponent);
+
+var _bootstrap = __webpack_require__(284);
+
+var _bootstrap2 = _interopRequireDefault(_bootstrap);
+
+__webpack_require__(285);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(
+    _reactRedux.Provider,
+    { store: _reducers2.default },
+    _react2.default.createElement(_AppComponent2.default, null)
+), document.getElementById('root'));
+
+(0, _reduxLittleRouter.push)('/groups');
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(62);
+
+var _reduxLittleRouter = __webpack_require__(26);
+
+var _locationTracker = __webpack_require__(275);
+
+var _locationTracker2 = _interopRequireDefault(_locationTracker);
+
+var _groups = __webpack_require__(276);
+
+var _groups2 = _interopRequireDefault(_groups);
+
+var _contacts = __webpack_require__(277);
+
+var _contacts2 = _interopRequireDefault(_contacts);
+
+var _master = __webpack_require__(278);
+
+var _master2 = _interopRequireDefault(_master);
+
+var _routes = __webpack_require__(279);
+
+var _routes2 = _interopRequireDefault(_routes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _routerForBrowser = (0, _reduxLittleRouter.routerForBrowser)({
+  routes: _routes2.default
+}),
+    reducer = _routerForBrowser.reducer,
+    middleware = _routerForBrowser.middleware,
+    enhancer = _routerForBrowser.enhancer;
+
+var contactsApp = (0, _redux.combineReducers)({
+  router: reducer,
+  contactGroups: _groups2.default,
+  contacts: _contacts2.default,
+  master: _master2.default
+});
+
+var store = (0, _redux.createStore)(contactsApp, (0, _redux.compose)(enhancer, (0, _redux.applyMiddleware)(middleware, _locationTracker2.default)));
+
+var initialLocation = store.getState().router;
+
+if (initialLocation) {
+  store.dispatch((0, _reduxLittleRouter.initializeCurrentLocation)(initialLocation));
+}
+
+exports.default = store;
+
+/***/ }),
+
+/***/ 275:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _constants = __webpack_require__(117);
+
+var _contactsAction = __webpack_require__(118);
+
+var _contactsAction2 = _interopRequireDefault(_contactsAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var locationTracker = function locationTracker(store) {
+    return function (next) {
+        return function (action) {
+
+            if (action.type === "ROUTER_LOCATION_CHANGED") {
+
+                if (store.getState().contactGroups.groups.length === 0 && action.payload.route !== _constants.GROUP_LIST) {
+                    next(_contactsAction2.default.loadGroups());
+                }
+
+                switch (action.payload.route) {
+                    case _constants.GROUP_LIST:
+                        next(_contactsAction2.default.loadGroups(true));
+                        break;
+
+                    case _constants.GROUP_DETAILS:
+                        // if (store.getState().contactGroups.groups.length === 0) {
+                        //     next(appActions.loadGroups());
+                        // }
+                        next(_contactsAction2.default.selectGroupAndSetContacts(action.payload.params.group));
+                        break;
+
+                    case _constants.GROUP_CONTACT_DETAILS:
+                        next(_contactsAction2.default.selectGroupAndSetContacts(action.payload.params.group));
+                        next(_contactsAction2.default.selectContact(action.payload.params.group, action.payload.params.contact));
+                        break;
+
+                    case _constants.EDIT_CONTACT_DETAILS:
+                        next(_contactsAction2.default.selectGroupAndSetContacts(action.payload.params.group));
+                        next(_contactsAction2.default.selectContact(action.payload.params.group, action.payload.params.contact, true));
+                        break;
+
+                }
+            }
+
+            next(action);
+        };
+    };
+};
+
+exports.default = locationTracker;
+
+/***/ }),
+
+/***/ 276:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _contactsConstants = __webpack_require__(67);
+
+var PREDEFINED_GROUPS = [{
+    id: 1,
+    name: 'Family'
+}, {
+    id: 2,
+    name: 'Friends'
+}, {
+    id: 3,
+    name: 'Work'
+}, {
+    id: 4,
+    name: 'Society'
+}, {
+    id: 5,
+    name: 'School'
+}];
+
+var initialState = {
+    groups: [],
+    selectedGroup: -1
+};
+
+var contactGroups = function contactGroups() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case 'ADD_GROUP':
+            return state;
+
+        case _contactsConstants.SELECT_GROUP:
+            state.selectedGroup = parseInt(action.data);
+            return state;
+
+        case _contactsConstants.GET_GROUPS:
+            if (action.data.loadAllContacts) {
+                state.selectedGroup = -1;
+            }
+
+            if (state.groups.length === 0) {
+                state.groups = PREDEFINED_GROUPS;
+            }
+            return state;
+
+        default:
+            return state;
+    }
+};
+
+exports.default = contactGroups;
+
+/***/ }),
+
+/***/ 277:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _contactsConstants = __webpack_require__(67);
+
+var initialState = {
+    ALL_CONTACTS: [],
+
+    CURRENT_CONTACTS: [],
+
+    selectedContact: {
+        id: -1
+    },
+    isEditMode: false,
+    event: ''
+};
+
+[0, 0, 0, 0, 0].forEach(function (val, ind) {
+
+    [0, 0, 0, 0, 0].forEach(function (val, index) {
+        initialState['ALL_CONTACTS'].push({
+            id: index + 1,
+            group_id: ind + 1,
+            firstName: 'First',
+            lastName: 'Last ' + (ind + 1) + ' - ' + (index + 1),
+            fullName: 'First Last ' + (ind + 1) + ' - ' + (index + 1),
+
+            phone: [{ type: 'home 1', value: '123123123' }, { type: 'home 2', value: '123123123' }, { type: 'home 3', value: '123123123' }],
+
+            email: [{ type: 'home 1', value: 'test@123.com' }, { type: 'home 2', value: 'test@123.com' }, { type: 'home 3', value: 'test@123.com' }],
+
+            website: [{ type: 'home 1', value: 'web@123.com' }, { type: 'home 2', value: 'web@123.com' }, { type: 'home 3', value: 'web@123.com' }]
+
+            // mobile: `123123123-${index + 1}`,
+            // home: `123123123-${index + 1}`,
+            // homePage: `www.123-${index + 1}.com`
+        });
+    });
+});
+
+var contactGroups = function contactGroups() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case 'ADD_GROUP':
+            return state;
+
+        case _contactsConstants.GET_GROUPS:
+            if (action.data.loadAllContacts) {
+                state.CURRENT_CONTACTS = state['ALL_CONTACTS'];
+            }
+
+            return state;
+
+        case _contactsConstants.SELECT_CONTACT:
+            var contact = state['ALL_CONTACTS'].find(function (contact) {
+                return contact.id === parseInt(action.data.contact) && contact.group_id === parseInt(action.data.group);
+            });
+            state.selectedContact = contact;
+            state.isEditMode = action.data.isEditMode;
+            return state;
+
+        case _contactsConstants.UPDATE_CONTACT:
+            var index = state['ALL_CONTACTS'].findIndex(function (contact) {
+                return contact.id === parseInt(action.data.contact) && contact.group_id === parseInt(action.data.group);
+            });
+            state['ALL_CONTACTS'][index] = action.data.contact;
+            state['event'] = _contactsConstants.UPDATE_CONTACT_SUCCESS;
+            return state;
+
+        case _contactsConstants.SELECT_GROUP:
+            state.CURRENT_CONTACTS = state['ALL_CONTACTS'].filter(function (contact) {
+                return contact.group_id === parseInt(action.data);
+            });
+            state.selectedContact = {
+                id: -1
+            };
+            return state;
+
+        case _contactsConstants.CLEAR_CONTACT_EVENT:
+            state.event = '';
+
+        default:
+            return state;
+    }
+};
+
+exports.default = contactGroups;
+
+/***/ }),
+
+/***/ 278:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var initialState = {
+
+    'phone': [],
+
+    'email': [],
+
+    'fax': [],
+
+    'website': []
+
+};
+
+var contactGroups = function contactGroups() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case 'ADD_FIELD_TYPE':
+            return state;
+        default:
+            return state;
+    }
+};
+
+exports.default = contactGroups;
+
+/***/ }),
+
+/***/ 279:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _constants = __webpack_require__(117);
+
+var routes = {};
+
+routes[_constants.GROUP_LIST] = {
+    title: 'Contact Groups'
+};
+
+routes[_constants.GROUP_DETAILS] = {
+    title: 'Contact Group'
+};
+
+routes[_constants.GROUP_CONTACT_DETAILS] = {
+    title: 'View Contact Details'
+};
+
+routes[_constants.EDIT_CONTACT_DETAILS] = {
+    title: 'Edit Contact Details'
+};
+
+exports.default = routes;
+
+/***/ }),
+
+/***/ 280:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(62);
+
+var _reactRedux = __webpack_require__(37);
+
+var _reduxLittleRouter = __webpack_require__(26);
+
+var _ContactsAppComponent = __webpack_require__(281);
+
+var _ContactsAppComponent2 = _interopRequireDefault(_ContactsAppComponent);
+
+var _contactsAction = __webpack_require__(118);
+
+var _contactsAction2 = _interopRequireDefault(_contactsAction);
+
+var _ContactGroupsComponent = __webpack_require__(282);
+
+var _ContactGroupsComponent2 = _interopRequireDefault(_ContactGroupsComponent);
+
+var _ContactsListComponent = __webpack_require__(283);
+
+var _ContactsListComponent2 = _interopRequireDefault(_ContactsListComponent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        groups: state.contactGroups.groups,
+        selectedGroup: state.contactGroups.selectedGroup,
+        contacts: state.contacts.CURRENT_CONTACTS,
+        location: state.location,
+        selectedContact: state.contacts.selectedContact,
+        initialLocation: state.router,
+        isEditMode: state.contacts.isEditMode
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        addGroup: function addGroup(group) {
+            return dispatch(_contactsAction2.default.addGroup(group));
+        },
+        getGroups: function getGroups() {
+            return dispatch(_contactsAction2.default.loadGroups());
+        },
+        selectGroup: function selectGroup(group) {
+            return dispatch(_contactsAction2.default.selectGroupAndSetContacts);
+        },
+        selectContact: function selectContact(contact) {
+            return (0, _redux.bindActionCreators)(_contactsAction2.default.selectContact);
+        },
+        addContact: function addContact() {
+            return (0, _redux.bindActionCreators)(_contactsAction2.default.addContact, dispatch);
+        },
+        updateContact: function updateContact() {
+            return (0, _redux.bindActionCreators)(_contactsAction2.default.updateContact, dispatch);
+        },
+        redirectToGroups: function redirectToGroups() {
+            return dispatch((0, _reduxLittleRouter.replace)({ pathname: '/groups' }));
+        },
+        searchContacts: function searchContacts(route) {
+            return dispatch((0, _reduxLittleRouter.replace)(route));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_ContactsAppComponent2.default);
+
+/***/ }),
+
+/***/ 281:
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: await is a reserved word (64:40)\n\n\u001b[0m \u001b[90m 62 | \u001b[39m        \u001b[90m// });\u001b[39m\n \u001b[90m 63 | \u001b[39m    \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 64 | \u001b[39m        \u001b[36mconst\u001b[39m \u001b[33mContactDetailsComponent\u001b[39m \u001b[33m=\u001b[39m await \u001b[36mimport\u001b[39m(\u001b[32m'./ContactDetailsComponent.jsx'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 65 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({detailsComponent\u001b[33m:\u001b[39m \u001b[33m<\u001b[39m\u001b[33mContactDetailsComponent\u001b[39m updateContact\u001b[33m=\u001b[39m{params\u001b[33m.\u001b[39mupdateContact} isEditMode\u001b[33m=\u001b[39m{params\u001b[33m.\u001b[39misEditMode} contact\u001b[33m=\u001b[39m{params\u001b[33m.\u001b[39mselectedContact} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m 66 | \u001b[39m    }\n \u001b[90m 67 | \u001b[39m\u001b[0m\n");
+
+/***/ }),
+
+/***/ 282:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxLittleRouter = __webpack_require__(26);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactGroupsComponent = function (_React$Component) {
+    _inherits(ContactGroupsComponent, _React$Component);
+
+    function ContactGroupsComponent() {
+        _classCallCheck(this, ContactGroupsComponent);
+
+        return _possibleConstructorReturn(this, (ContactGroupsComponent.__proto__ || Object.getPrototypeOf(ContactGroupsComponent)).apply(this, arguments));
+    }
+
+    _createClass(ContactGroupsComponent, [{
+        key: 'render',
+
+        // componentWillReceiveProps(nextProps, nextState) {
+        //     console.log(nextProps);
+        //     console.log(nextState);
+        // }
+
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'contacts-group' },
+                _react2.default.createElement(
+                    'h5',
+                    { className: 'h5-heading' },
+                    ' On This Mac '
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'list-contacts app-list' },
+                    _react2.default.createElement(
+                        _reduxLittleRouter.Link,
+                        { className: 'list-group-item' + (this.props.selectedGroup == -1 ? ' active' : ''), href: '/groups' },
+                        'All Contacts'
+                    ),
+                    this.props.groups.map(function (group) {
+                        return _react2.default.createElement(
+                            _reduxLittleRouter.Link,
+                            { key: group.id, className: 'list-group-item' + (_this2.props.selectedGroup == group.id ? ' active' : ''), href: '/groups/' + group.id },
+                            group.name
+                        );
+                    })
+                )
+            );
+        }
+    }]);
+
+    return ContactGroupsComponent;
+}(_react2.default.Component);
+
+exports.default = ContactGroupsComponent;
+;
+
+/***/ }),
+
+/***/ 283:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxLittleRouter = __webpack_require__(26);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactsListComponent = function (_React$Component) {
+    _inherits(ContactsListComponent, _React$Component);
+
+    function ContactsListComponent() {
+        _classCallCheck(this, ContactsListComponent);
+
+        var _this = _possibleConstructorReturn(this, (ContactsListComponent.__proto__ || Object.getPrototypeOf(ContactsListComponent)).call(this));
+
+        _this.state = {
+            search: '',
+            contacts: []
+        };
+        return _this;
+    }
+
+    _createClass(ContactsListComponent, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.updateContacts(this.props);
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(props) {
+            this.updateContacts(props);
+        }
+    }, {
+        key: 'updateContacts',
+        value: function updateContacts(props) {
+            var searchTerm = props.location.query.search;
+
+            if (searchTerm) {
+                this.setStateForSearch(searchTerm);
+            } else {
+                this.setState({
+                    contacts: props.contacts
+                });
+            }
+
+            this.searchInput.focus();
+        }
+    }, {
+        key: 'setStateForSearch',
+        value: function setStateForSearch(searchTerm) {
+            this.setState({
+                search: searchTerm,
+                contacts: this.props.contacts.filter(function (contact) {
+                    return contact.fullName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+                })
+            });
+        }
+    }, {
+        key: 'search',
+        value: function search(event) {
+            this.setStateForSearch(event.target.value);
+
+            var query = {
+                search: event.target.value
+            };
+
+            if (event.target.value === '') {
+                query = {};
+            }
+
+            this.props.onSearch({
+                pathname: this.props.location.pathname,
+                query: query
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'contacts-list', id: 'search-contacts' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'input-group' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group-addon' },
+                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-search' })
+                    ),
+                    _react2.default.createElement('input', {
+                        ref: function ref(input) {
+                            _this2.searchInput = input;
+                        },
+                        value: this.state.search,
+                        onChange: function onChange(event) {
+                            return _this2.search(event);
+                        },
+                        type: 'text', className: 'form-control', placeholder: 'Search' })
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'list-group app-list' },
+                    this.state.contacts.map(function (contact) {
+                        return _react2.default.createElement(
+                            _reduxLittleRouter.Link,
+                            {
+                                key: contact.id + ' - ' + contact.group_id,
+                                className: 'list-group-item' + (_this2.props.selectedContact.id == contact.id ? ' active' : ''),
+                                href: '/groups/' + contact.group_id + '/' + contact.id },
+                            contact.firstName + ' ' + contact.lastName
+                        );
+                    })
+                )
+            );
+        }
+    }]);
+
+    return ContactsListComponent;
+}(_react2.default.Component);
+
+exports.default = ContactsListComponent;
+;
+
+/***/ }),
+
+/***/ 284:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 285:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var GET_GROUPS = exports.GET_GROUPS = 'GET_GROUPS';
+var ADD_CONTACT = exports.ADD_CONTACT = 'ADD_CONTACT';
+var UPDATE_CONTACT = exports.UPDATE_CONTACT = 'UPDATE_CONTACT';
+var ADD_GROUP = exports.ADD_GROUP = 'ADD_GROUP';
+var SELECT_GROUP = exports.SELECT_GROUP = 'SELECT_GROUP';
+var SELECT_CONTACT = exports.SELECT_CONTACT = 'SELECT_CONTACT';
+
+var UPDATE_CONTACT_SUCCESS = exports.UPDATE_CONTACT_SUCCESS = 'UPDATE_CONTACT_SUCCESS';
+var CLEAR_CONTACT_EVENT = exports.CLEAR_CONTACT_EVENT = 'CLEAR_CONTACT_EVENT';
+
+/***/ })
+
+},[119]);

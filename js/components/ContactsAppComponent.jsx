@@ -50,12 +50,20 @@ export default class ContactsAppComponent extends React.Component {
         }
     }
 
-    renderDetailsComponent(params) {
-        require.ensure(['./ContactDetailsComponent.jsx'], (require) => {
-            console.log("component loaded");
-            const ContactDetailsComponent = require('./ContactDetailsComponent.jsx').default;
-            this.setState({detailsComponent: <ContactDetailsComponent updateContact={params.updateContact} isEditMode={params.isEditMode} contact={params.selectedContact} />});
-        }, 'contact-details');
+    async renderDetailsComponent(params) {
+    // renderDetailsComponent(params) {
+        // require.ensure(['./ContactDetailsComponent.jsx'], (require) => {
+        //     console.log("component loaded");
+        //     const ContactDetailsComponent = require('./ContactDetailsComponent.jsx').default;
+        //     this.setState({detailsComponent: <ContactDetailsComponent updateContact={params.updateContact} isEditMode={params.isEditMode} contact={params.selectedContact} />});
+        // }, 'contact-details');
+
+        // import('./ContactDetailsComponent.jsx').then((ContactDetailsComponent) => {
+        //     this.setState({detailsComponent: <ContactDetailsComponent updateContact={params.updateContact} isEditMode={params.isEditMode} contact={params.selectedContact} />});
+        // });
+    
+        const ContactDetailsComponent = await import(/* webpackChunkName: "contact-details" */'./ContactDetailsComponent.jsx');
+        this.setState({detailsComponent: <ContactDetailsComponent.default updateContact={params.updateContact} isEditMode={params.isEditMode} contact={params.selectedContact} />});
     }
 
     componentWillUnmount() {

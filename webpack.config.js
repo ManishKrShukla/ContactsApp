@@ -22,7 +22,13 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'es2015']
+                    presets: ['react', 'es2015', "stage-0"],
+                    plugins: [
+                        ["transform-runtime", {
+                        "polyfill": false,
+                        "regenerator": true
+                        }]
+                    ]
                 },
                 exclude: /node_modules/
             },
